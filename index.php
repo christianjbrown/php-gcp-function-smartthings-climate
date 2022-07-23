@@ -17,7 +17,7 @@ function run(ServerRequestInterface $request): ResponseInterface
         $bodyJson = [
             'version' => getenv('K_REVISION'),
             'timestamp' => time(),
-            'time_london' => $timeLondon->format('H:i (h:ia)'),
+            'time_london' => $timeLondon->format('H:i (g:ia)'),
             'devices' => [],
         ];
         if (!empty(getenv('SMARTTHINGS_TOKEN') && is_string(getenv('SMARTTHINGS_TOKEN')))) {
