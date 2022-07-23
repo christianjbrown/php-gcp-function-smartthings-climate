@@ -50,7 +50,7 @@ function run(ServerRequestInterface $request): ResponseInterface
                     $temp = (float)$jsonDevice['components']['main']['temperatureMeasurement']['temperature']['value'];
                     $timestamp = strtotime($jsonDevice['components']['main']['temperatureMeasurement']['temperature']['timestamp']);
                     $bodyJson[] = [
-                        'version' => getenv('GOOGLE_RUNTIME_VERSION'),
+                        'version' => getenv('K_REVISION'),
                         'name' => $deviceName,
                         'temp' => $temp,
                         'timestamp' => $timestamp,
