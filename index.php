@@ -13,7 +13,10 @@ function run(ServerRequestInterface $request): ResponseInterface
     ];
 
     try {
-        $bodyJson = [];
+        $bodyJson = [
+            'version' => getenv('K_REVISION'),
+            'devices' => [],
+        ];
         if (!empty(getenv('SMARTTHINGS_TOKEN') && is_string(getenv('SMARTTHINGS_TOKEN')))) {
             $token = getenv('SMARTTHINGS_TOKEN');
             $context = stream_context_create(['http' => ['header' => [sprintf('Authorization: Bearer %s', $token)]]]);
@@ -49,8 +52,7 @@ function run(ServerRequestInterface $request): ResponseInterface
                 if (!empty($jsonDevice['components']['main']['temperatureMeasurement']['temperature']['value']) && !empty($jsonDevice['components']['main']['temperatureMeasurement']['temperature']['timestamp'])) {
                     $temp = (float)$jsonDevice['components']['main']['temperatureMeasurement']['temperature']['value'];
                     $timestamp = strtotime($jsonDevice['components']['main']['temperatureMeasurement']['temperature']['timestamp']);
-                    $bodyJson[] = [
-                        'version' => getenv('K_REVISION'),
+                    $bodyJson['devices'][] = [
                         'name' => $deviceName,
                         'temp' => $temp,
                         'timestamp' => $timestamp,
