@@ -1,0 +1,36 @@
+name: 'Deploy'
+on:
+  push:
+    branches: [ 'main' ]
+  pull_request:
+    branches: [ 'main' ]
+  workflow_dispatch:
+
+jobs:
+  job_id:
+    runs-on: 'ubuntu-latest'
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    steps:
+      - uses: 'actions/checkout@v3'
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v0'
+        with:
+          workload_identity_provider: 'projects/358995629045/locations/global/workloadIdentityPools/github/providers/github '
+          service_account: 'github@christianbrown.iam.gserviceaccount.com'
+      - id: 'deploy'
+        uses: 'google-github-actions/deploy-cloud-functions@v0'
+        with:
+          name: 'get-temperatures'
+          entry_point: 'run'
+          runtime: 'php81'
+          region: 'europe-west2'
+          memory_mb: '128'
+          secret_environment_variables: 'SMARTTHINGS_TOKEN=projects/358995629045/secrets/SmartThings/latest'
+          event_trigger_type: 'http'
+          https_trigger_security_level: 'secure_always'
+          min_instances: 0
+          max_instances: 1000
+      - id: 'test'
+        run: 'curl "${{ steps.deploy.outputs.url }}"'
