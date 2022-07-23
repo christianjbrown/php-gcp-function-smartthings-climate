@@ -27,7 +27,7 @@ jobs:
           runtime: 'php81'
           region: 'europe-west2'
           memory_mb: '128'
-          secret_environment_variables: 'SMARTTHINGS_TOKEN=projects/358995629045/secrets/SmartThings/latest'
+          secret_environment_variables: 'SMARTTHINGS_TOKEN=projects/358995629045/secrets/SmartThings'
 #          event_trigger_type: 'http'
           https_trigger_security_level: 'secure_always'
           min_instances: 0
