@@ -13,11 +13,11 @@ function run(ServerRequestInterface $request): ResponseInterface
     ];
 
     try {
-        $timeLondon = new DateTimeImmutable('now', new DateTimeZone('Europe/London'));
+//        $timeLondon = new DateTimeImmutable('now', new DateTimeZone('Europe/London'));
         $bodyJson = [
             'version' => getenv('K_REVISION'),
             'timestamp' => time(),
-            'time_london' => $timeLondon->format('H:i (g:ia)'),
+//            'time_london' => $timeLondon->format('H:i (g:ia)'),
             'devices' => [],
         ];
         if (!empty(getenv('SMARTTHINGS_TOKEN') && is_string(getenv('SMARTTHINGS_TOKEN')))) {
