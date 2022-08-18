@@ -55,7 +55,7 @@ function run(ServerRequestInterface $request): ResponseInterface
                 if (!empty($jsonDevice['components']['main']['temperatureMeasurement']['temperature']['value']) && !empty($jsonDevice['components']['main']['temperatureMeasurement']['temperature']['timestamp'])) {
                     $temp = (float)$jsonDevice['components']['main']['temperatureMeasurement']['temperature']['value'];
                     $timestamp = strtotime($jsonDevice['components']['main']['temperatureMeasurement']['temperature']['timestamp']);
-                    $bodyJson['devices'][$deviceName] = [
+                    $bodyJson['devices'][] = [
                         'name' => $deviceName,
                         'temp' => $temp,
                         'timestamp' => $timestamp,
@@ -63,7 +63,6 @@ function run(ServerRequestInterface $request): ResponseInterface
                 }
             }
         }
-        ksort($bodyJson['devices']);
         $headers['Surrogate-Control'] = 'max-age=180';
         $headers['Cache-Control'] = 's-maxage=180, max-age=0';
         $body = json_encode($bodyJson, JSON_THROW_ON_ERROR);
