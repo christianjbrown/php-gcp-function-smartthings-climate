@@ -63,6 +63,13 @@ function run(ServerRequestInterface $request): ResponseInterface
                 }
             }
         }
+        usort(
+            $bodyJson['devices'],
+            function($a, $b) {
+                return strcmp($a['name'], $b['name']);
+            }
+         );
+        
         $headers['Surrogate-Control'] = 'max-age=180';
         $headers['Cache-Control'] = 's-maxage=180, max-age=0';
         $body = json_encode($bodyJson, JSON_THROW_ON_ERROR);
