@@ -71,11 +71,18 @@ function run(ServerRequestInterface $request): ResponseInterface
                 ];
             }
         }
+        usort(
+            $bodyJson['devices'],
+            function($a, $b) {
+                return strcmp($a['name'], $b['name']);
+            }
+        );
         if ($totalDevicesAveraged > 0) {
             $bodyJson['averageTempForNonStale'] = $totalForAverage / $totalDevicesAveraged;
         }
         $bodyJson['success'] = true;
         ksort($bodyJson);
+
         $headers['Surrogate-Control'] = 'max-age=180';
         $headers['Cache-Control'] = 's-maxage=180, max-age=0';
         $body = json_encode($bodyJson, JSON_THROW_ON_ERROR);
@@ -88,3 +95,4 @@ function run(ServerRequestInterface $request): ResponseInterface
 
     return $response;
 }
+
