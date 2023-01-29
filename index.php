@@ -51,6 +51,7 @@ function run(ServerRequestInterface $request): ResponseInterface
 
         $totalForAverage = 0;
         $totalDevicesAveraged = 0;
+        $latestNonStaleTimestamp = null;
         foreach ($devicesWithReadingTemp as $deviceName => $deviceId) {
             $deviceUrl = sprintf('https://api.smartthings.com/v1/devices/%s/status', $deviceId);
             $rawDeviceData = file_get_contents($deviceUrl, false, $context);
@@ -62,6 +63,9 @@ function run(ServerRequestInterface $request): ResponseInterface
                 if (!$stale) {
                     $totalForAverage += $temp;
                     $totalDevicesAveraged++;
+                    if ($timestamp > $latestNonStaleTimestamp) {
+                        $latestNonStaleTimestamp = $timestamp;
+                    }
                 }
                 $bodyJson['devices'][] = [
                     'name' => $deviceName,
@@ -78,7 +82,8 @@ function run(ServerRequestInterface $request): ResponseInterface
             }
         );
         if ($totalDevicesAveraged > 0) {
-            $bodyJson['averageTempForNonStale'] = $totalForAverage / $totalDevicesAveraged;
+            $bodyJson['averageTempDegrees'] = $totalForAverage / $totalDevicesAveraged;
+            $bodyJson['averageTempTimestamp'] = $latestNonStaleTimestamp;
         }
         $bodyJson['success'] = true;
         ksort($bodyJson);
