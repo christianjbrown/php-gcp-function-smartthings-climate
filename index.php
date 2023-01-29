@@ -63,7 +63,7 @@ function run(ServerRequestInterface $request): ResponseInterface
                 if (!$stale) {
                     $totalForAverage += $temp;
                     $totalDevicesAveraged++;
-                    if ($timestamp > $latestNonStaleTimestamp) {
+                    if ($latestNonStaleTimestamp === null || $timestamp < $latestNonStaleTimestamp) {
                         $latestNonStaleTimestamp = $timestamp;
                     }
                 }
