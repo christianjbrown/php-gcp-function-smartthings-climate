@@ -20,7 +20,8 @@ function run(ServerRequestInterface $request): ResponseInterface
     ];
 
     try {
-        $bodyJson['devices'] = [];
+        $bodyJsonDevices = [];
+
         if (empty(getenv('SMARTTHINGS_TOKEN') || !is_string(getenv('SMARTTHINGS_TOKEN')))) {
             throw new RuntimeException('Missing security token');
         }
@@ -67,7 +68,7 @@ function run(ServerRequestInterface $request): ResponseInterface
                         $latestNonStaleTimestamp = $timestamp;
                     }
                 }
-                $bodyJson['devices'][] = [
+                $bodyJsonDevices[] = [
                     'name' => $deviceName,
                     'temp' => $temp,
                     'timestamp' => $timestamp,
@@ -76,11 +77,13 @@ function run(ServerRequestInterface $request): ResponseInterface
             }
         }
         usort(
-            $bodyJson['devices'],
-            function($a, $b) {
+            $bodyJsonDevices,
+            static function($a, $b) {
                 return strcmp($a['name'], $b['name']);
             }
         );
+
+        $bodyJson['devices'] = $bodyJsonDevices;
         if ($totalDevicesAveraged > 0) {
             $bodyJson['averageTempDegrees'] = $totalForAverage / $totalDevicesAveraged;
             $bodyJson['averageTempTimestamp'] = $latestNonStaleTimestamp;
@@ -91,6 +94,7 @@ function run(ServerRequestInterface $request): ResponseInterface
         $headers['Surrogate-Control'] = 'max-age=180';
         $headers['Cache-Control'] = 's-maxage=180, max-age=0';
         $body = json_encode($bodyJson, JSON_THROW_ON_ERROR);
+
         $response = new Response(200, $headers, $body);
     } catch (Throwable $e) {
         $bodyJson['error'] = 'Could not reach smart home API to get the latest data :(';
