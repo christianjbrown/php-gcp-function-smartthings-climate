@@ -11,10 +11,9 @@ function run(ServerRequestInterface $request): ResponseInterface
         'Access-Control-Allow-Methods' => 'GET, OPTIONS',
         'Content-Type' => 'application/json; charset=utf-8',
     ];
-    $timeLondon = new DateTimeImmutable('now', new DateTimeZone('Europe/London'));
     $bodyJson = [
+        'data' => [],
         'success' => false,
-        'time_london' => $timeLondon->format('H:i (g:ia)'),
         'timestamp' => time(),
         'version' => getenv('K_REVISION'),
     ];
@@ -83,10 +82,10 @@ function run(ServerRequestInterface $request): ResponseInterface
             }
         );
 
-        $bodyJson['devices'] = $bodyJsonDevices;
+        $bodyJson['data']['devices'] = $bodyJsonDevices;
         if ($totalDevicesAveraged > 0) {
-            $bodyJson['averageTempDegrees'] = $totalForAverage / $totalDevicesAveraged;
-            $bodyJson['averageTempTimestamp'] = $latestNonStaleTimestamp;
+            $bodyJson['data']['averageTempDegrees'] = $totalForAverage / $totalDevicesAveraged;
+            $bodyJson['data']['averageTempTimestamp'] = $latestNonStaleTimestamp;
         }
         $bodyJson['success'] = true;
         ksort($bodyJson);
@@ -97,7 +96,7 @@ function run(ServerRequestInterface $request): ResponseInterface
 
         $response = new Response(200, $headers, $body);
     } catch (Throwable $e) {
-        $bodyJson['error'] = 'Could not reach smart home API to get the latest data :(';
+        $bodyJson['error'] = 'Could not reach Samsung SmartThings API to get the latest device data';
         $body = json_encode($bodyJson, JSON_THROW_ON_ERROR);
         $response = new Response(500, $headers, $body);
     }
