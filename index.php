@@ -90,8 +90,8 @@ function run(ServerRequestInterface $request): ResponseInterface
         $bodyJson['success'] = true;
         ksort($bodyJson);
 
-        $headers['Surrogate-Control'] = 'max-age=180';
-        $headers['Cache-Control'] = 's-maxage=180, max-age=0';
+        $headers['Surrogate-Control'] = 'max-age=180, stale-while-revalidate=259200, stale-if-error=259200';
+        $headers['Cache-Control'] = 's-maxage=180, max-age=0, stale-while-revalidate=259200, stale-if-error=259200';
         $body = json_encode($bodyJson, JSON_THROW_ON_ERROR);
 
         $response = new Response(200, $headers, $body);
