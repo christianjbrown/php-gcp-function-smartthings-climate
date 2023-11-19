@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5bdbd3d1e449094134f6dc20b4d640dc",
+    "content-hash": "b6eab995200c40494ea0f8ff7a93749d",
     "packages": [
         {
             "name": "christianjbrown/cloud-function",
@@ -54,6 +54,93 @@
                 "issues": "https://github.com/christianjbrown/cloud-function/issues"
             },
             "time": "2023-11-19T01:34:05+00:00"
+        },
+        {
+            "name": "christianjbrown/json-api-client",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:christianjbrown/json-api-client.git",
+                "reference": "83ddce3cd12a485a69464e76204921cc1c394e56"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/christianjbrown/json-api-client/zipball/83ddce3cd12a485a69464e76204921cc1c394e56",
+                "reference": "83ddce3cd12a485a69464e76204921cc1c394e56",
+                "shasum": ""
+            },
+            "require": {
+                "christianjbrown/user-friendly-exception": "dev-main",
+                "guzzlehttp/guzzle": "^7.8",
+                "php": "^8.2"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ChristianBrown\\JsonApiClient\\": "src/"
+                }
+            },
+            "support": {
+                "source": "https://github.com/christianjbrown/json-api-client/tree/main",
+                "issues": "https://github.com/christianjbrown/json-api-client/issues"
+            },
+            "time": "2023-09-23T18:16:42+00:00"
+        },
+        {
+            "name": "christianjbrown/smarthings-api",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:christianjbrown/smartthings-api.git",
+                "reference": "24e5dfd8cf16090f2e7b75990ced367968e0a947"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/christianjbrown/smartthings-api/zipball/24e5dfd8cf16090f2e7b75990ced367968e0a947",
+                "reference": "24e5dfd8cf16090f2e7b75990ced367968e0a947",
+                "shasum": ""
+            },
+            "require": {
+                "christianjbrown/json-api-client": "dev-main",
+                "christianjbrown/user-friendly-exception": "dev-main",
+                "php": "^8.2",
+                "psr/http-client": "^1.0"
+            },
+            "require-dev": {
+                "christianjbrown/php-cs-fixer-wrapper": "dev-main",
+                "ext-xdebug": "*",
+                "phpunit/phpunit": "^11.0@dev"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ChristianBrown\\SmartThings\\": "src/",
+                    "ChristianBrown\\SmartThings\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "./vendor/bin/phpunit && open ./.phpunit.cache/code-coverage-html/index.html"
+                ],
+                "lint": [
+                    "./vendor/bin/phpcs --standard=vendor/christianjbrown/phpcs-tools/standards/ChristianBrown ./src ./tests || true"
+                ],
+                "fix": [
+                    "./vendor/bin/php-cs-fixer fix ./src ./tests -vvv --config=vendor/christianjbrown/php-cs-fixer-wrapper/rule-sets/risky.php"
+                ],
+                "fix-lint-test": [
+                    "@fix",
+                    "@lint",
+                    "@test"
+                ]
+            },
+            "support": {
+                "source": "https://github.com/christianjbrown/smartthings-api/tree/main",
+                "issues": "https://github.com/christianjbrown/smartthings-api/issues"
+            },
+            "time": "2023-11-19T19:14:28+00:00"
         },
         {
             "name": "christianjbrown/user-friendly-exception",
@@ -1140,12 +1227,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer.git",
-                "reference": "60511ca830581a61bf3a53d0f114d54ada7f3e1c"
+                "reference": "1d612d2a8fad65c3c84f4ce4d8f5083bbe001628"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/60511ca830581a61bf3a53d0f114d54ada7f3e1c",
-                "reference": "60511ca830581a61bf3a53d0f114d54ada7f3e1c",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/1d612d2a8fad65c3c84f4ce4d8f5083bbe001628",
+                "reference": "1d612d2a8fad65c3c84f4ce4d8f5083bbe001628",
                 "shasum": ""
             },
             "require": {
@@ -1226,7 +1313,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-11-18T22:31:02+00:00"
+            "time": "2023-11-19T06:18:00+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -4195,6 +4282,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "christianjbrown/cloud-function": 20,
+        "christianjbrown/smarthings-api": 20,
         "christianjbrown/user-friendly-exception": 20,
         "phpunit/phpunit": 20,
         "christianjbrown/php-cs-fixer-wrapper": 20
