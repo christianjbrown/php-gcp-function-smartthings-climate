@@ -2,6 +2,7 @@
     "require": {
         "php": "~8.2",
         "christianjbrown/cloud-function": "dev-main",
+        "christianjbrown/smarthings-api": "dev-main",
         "christianjbrown/user-friendly-exception": "dev-main",
         "google/cloud-functions-framework": "^1.1",
         "psr/http-client": "^1.0"
@@ -44,6 +45,10 @@
         {
             "type": "github",
             "url": "git@github.com:christianjbrown/php-cs-fixer-wrapper.git"
+        },
+        {
+            "type": "github",
+            "url": "git@github.com:christianjbrown/smartthings-api.git"
         }
     ],
     "require-dev": {
