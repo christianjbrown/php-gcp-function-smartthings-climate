@@ -6,4 +6,5 @@ use ChristianBrown\CloudFunction\DataProviderInterface as BaseDataProviderInterf
 
 interface DataProviderInterface extends BaseDataProviderInterface
 {
+    public const STALE_TEMPERATURE_THRESHOLD = 24 * 60 * 60;
 }
