@@ -93,12 +93,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:christianjbrown/smartthings-api.git",
-                "reference": "24e5dfd8cf16090f2e7b75990ced367968e0a947"
+                "reference": "23df190b51fdbfe1a84b75ded75aca7070622c6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/christianjbrown/smartthings-api/zipball/24e5dfd8cf16090f2e7b75990ced367968e0a947",
-                "reference": "24e5dfd8cf16090f2e7b75990ced367968e0a947",
+                "url": "https://api.github.com/repos/christianjbrown/smartthings-api/zipball/23df190b51fdbfe1a84b75ded75aca7070622c6e",
+                "reference": "23df190b51fdbfe1a84b75ded75aca7070622c6e",
                 "shasum": ""
             },
             "require": {
@@ -140,7 +140,7 @@
                 "source": "https://github.com/christianjbrown/smartthings-api/tree/main",
                 "issues": "https://github.com/christianjbrown/smartthings-api/issues"
             },
-            "time": "2023-11-19T19:14:28+00:00"
+            "time": "2023-11-20T00:11:00+00:00"
         },
         {
             "name": "christianjbrown/user-friendly-exception",
