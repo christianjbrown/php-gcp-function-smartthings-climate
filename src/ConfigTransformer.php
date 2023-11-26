@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
+namespace ChristianBrown\GetSmartHomeTemps;
+
 use ChristianBrown\CloudFunction\FunctionConfigTransformerInterface;
+use RuntimeException;
 
 final class ConfigTransformer implements ConfigTransformerInterface
 {

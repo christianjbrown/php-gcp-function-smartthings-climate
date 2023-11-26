@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace ChristianBrown\GetSmartHomeTemps;
+
 interface DeviceTemperatureInterface
 {
     public function getName(): string;
