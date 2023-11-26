@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace ChristianBrown\GetSmartHomeTemps;
+
 final class DeviceTemperatureOutputTransformer implements DeviceTemperatureOutputTransformerInterface
 {
     public function transform(DeviceTemperatureInterface $deviceTemperature): array

@@ -6,6 +6,10 @@ date_default_timezone_set('UTC');
 
 use ChristianBrown\CloudFunction\CloudFunction;
 use ChristianBrown\CloudFunction\FunctionConfigTransformer;
+use ChristianBrown\GetSmartHomeTemps\ConfigTransformer;
+use ChristianBrown\GetSmartHomeTemps\DataProvider;
+use ChristianBrown\GetSmartHomeTemps\DeviceTemperatureOutputTransformer;
+use ChristianBrown\GetSmartHomeTemps\OutputTransformer;
 use ChristianBrown\JsonApiClient\RequestSender;
 use ChristianBrown\SmartThings\Api\DeviceApi;
 use ChristianBrown\SmartThings\Api\DeviceStatusApi;
@@ -54,4 +58,3 @@ function run(ServerRequestInterface $request): ResponseInterface
 
     return $response;
 }
-
