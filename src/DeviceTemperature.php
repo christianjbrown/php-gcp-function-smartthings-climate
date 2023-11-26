@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace ChristianBrown\GetSmartHomeTemps;
+
 final class DeviceTemperature implements DeviceTemperatureInterface
 {
     private string $name;

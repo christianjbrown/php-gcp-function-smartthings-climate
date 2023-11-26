@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace ChristianBrown\GetSmartHomeTemps;
+
 interface OutputTransformerInterface
 {
     public const KEY_AVERAGE_TEMPERATURE_TIMESTAMP = 'averageTempTimestamp';

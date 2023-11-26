@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace ChristianBrown\GetSmartHomeTemps;
+
 interface DeviceTemperatureOutputTransformerInterface
 {
     public const KEY_NAME = 'name';

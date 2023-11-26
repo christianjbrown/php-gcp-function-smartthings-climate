@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace ChristianBrown\GetSmartHomeTemps;
+
 use ChristianBrown\CloudFunction\FunctionConfigInterface;
 
 interface ConfigInterface

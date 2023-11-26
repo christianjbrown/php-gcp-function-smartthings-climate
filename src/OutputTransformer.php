@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace ChristianBrown\GetSmartHomeTemps;
+
 final class OutputTransformer implements OutputTransformerInterface
 {
     private DeviceTemperatureOutputTransformerInterface $deviceTemperatureOutputTransformer;
