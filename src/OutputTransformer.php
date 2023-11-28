@@ -18,7 +18,7 @@ final class OutputTransformer implements OutputTransformerInterface
         // @todo Doesn't check if the things in the array are really a DeviceTemperatureInterface
         usort(
             $deviceTemperatures,
-            static fn ($a, $b) => strcmp($a->getName(), $b->getName())
+            static fn ($a, $b) => strcmp($a->getLabel(), $b->getLabel())
         );
 
         $devicesData = [];

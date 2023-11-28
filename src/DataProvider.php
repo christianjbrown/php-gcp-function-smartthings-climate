@@ -55,10 +55,9 @@ final class DataProvider implements DataProviderInterface
 
         $temperature = $temperatureMeasurement->getTemperature();
         $timestamp = $temperature->getTimestamp();
-        $value = $temperature->getValue();
         $stale = $timestamp < $this->now - self::STALE_TEMPERATURE_THRESHOLD;
 
-        $obj = new DeviceTemperature($device->getName(), $value, $timestamp, $stale);
+        $obj = new DeviceTemperature($device->getLabel(), $temperature->getValue(), $timestamp, $stale);
 
         return $obj;
     }

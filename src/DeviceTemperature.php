@@ -6,22 +6,22 @@ namespace ChristianBrown\GetSmartHomeTemps;
 
 final class DeviceTemperature implements DeviceTemperatureInterface
 {
-    private string $name;
+    private string $label;
     private bool $stale;
     private float $temperature;
     private int $timestamp;
 
-    public function __construct(string $name, float $temperature, int $timestamp, bool $stale)
+    public function __construct(string $label, float $temperature, int $timestamp, bool $stale)
     {
-        $this->name = $name;
+        $this->label = $label;
         $this->temperature = $temperature;
         $this->timestamp = $timestamp;
         $this->stale = $stale;
     }
 
-    public function getName(): string
+    public function getLabel(): string
     {
-        return $this->name;
+        return $this->label;
     }
 
     public function getTemperature(): float
