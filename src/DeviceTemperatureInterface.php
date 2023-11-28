@@ -6,7 +6,7 @@ namespace ChristianBrown\GetSmartHomeTemps;
 
 interface DeviceTemperatureInterface
 {
-    public function getName(): string;
+    public function getLabel(): string;
 
     public function getTemperature(): float;
 

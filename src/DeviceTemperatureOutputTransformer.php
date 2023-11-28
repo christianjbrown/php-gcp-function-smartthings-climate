@@ -9,7 +9,7 @@ final class DeviceTemperatureOutputTransformer implements DeviceTemperatureOutpu
     public function transform(DeviceTemperatureInterface $deviceTemperature): array
     {
         $data = [
-            self::KEY_NAME => $deviceTemperature->getName(),
+            self::KEY_LABEL => $deviceTemperature->getLabel(),
             self::KEY_TEMPERATURE => $deviceTemperature->getTemperature(),
             self::KEY_TIMESTAMP => $deviceTemperature->getTimestamp(),
             self::KEY_STALE => $deviceTemperature->isStale(),
