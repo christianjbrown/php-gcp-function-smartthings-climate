@@ -10,5 +10,10 @@ interface OutputTransformerInterface
     public const KEY_AVERAGE_TEMPERATURE_VALUE = 'averageTempDegrees';
     public const KEY_DEVICES = 'devices';
 
+    /**
+     * @param DeviceTemperatureInterface[] $deviceTemperatures
+     *
+     * @return mixed[]
+     */
     public function transform(array $deviceTemperatures): array;
 }

@@ -6,6 +6,9 @@ namespace ChristianBrown\GetSmartHomeTemps;
 
 final class DeviceTemperatureOutputTransformer implements DeviceTemperatureOutputTransformerInterface
 {
+    /**
+     * @return mixed[]
+     */
     public function transform(DeviceTemperatureInterface $deviceTemperature): array
     {
         $data = [

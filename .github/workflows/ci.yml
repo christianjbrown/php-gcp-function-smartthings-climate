@@ -7,6 +7,7 @@ on:
       - '**.md'
       - 'LICENSE'
       - '.gitignore'
+  workflow_dispatch:
 
 jobs:
   on-push-checks:
@@ -21,6 +22,7 @@ jobs:
         uses: "shivammathur/setup-php@v2"
         with:
           php-version: '8.3'
+          coverage: xdebug
 
       - name: "Install dependencies"
         env:
@@ -30,7 +32,10 @@ jobs:
       - name: "Run PHPCS checks"
         run: "./bin/php-cs ./src ./tests"
 
+      - name: "Run PHPStan static analysis"
+        run: "./bin/phpstan analyse --no-progress"
+
       - name: "Run PHPUnit tests"
         env:
           XDEBUG_MODE: "coverage"
-        run: "./bin/phpunit"
+        run: "php -d memory_limit=-1 ./bin/phpunit"

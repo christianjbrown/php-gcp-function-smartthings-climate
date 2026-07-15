@@ -110,6 +110,9 @@ final class DataProviderTest extends TestCase
     }
 
     /**
+     * @param string                     $label
+     * @param DeviceComponentInterface[] $components
+     *
      * @throws Exception
      */
     private function createDevice(string $label, array $components): DeviceInterface

@@ -43,6 +43,8 @@ final class ConfigTransformerTest extends TestCase
     }
 
     /**
+     * @param mixed[] $env
+     *
      * @throws Exception
      */
     #[TestWith([[]])]

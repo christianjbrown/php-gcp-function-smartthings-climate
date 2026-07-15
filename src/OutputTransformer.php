@@ -13,12 +13,16 @@ final class OutputTransformer implements OutputTransformerInterface
         $this->deviceTemperatureOutputTransformer = $deviceTemperatureOutputTransformer;
     }
 
+    /**
+     * @param DeviceTemperatureInterface[] $deviceTemperatures
+     *
+     * @return mixed[]
+     */
     public function transform(array $deviceTemperatures): array
     {
-        // @todo Doesn't check if the things in the array are really a DeviceTemperatureInterface
         usort(
             $deviceTemperatures,
-            static fn ($a, $b) => strcmp($a->getLabel(), $b->getLabel())
+            static fn (DeviceTemperatureInterface $a, DeviceTemperatureInterface $b) => strcmp($a->getLabel(), $b->getLabel())
         );
 
         $devicesData = [];
@@ -27,15 +31,13 @@ final class OutputTransformer implements OutputTransformerInterface
         $totalDevicesAveraged = 0;
         $latestNonStaleTimestamp = null;
         foreach ($deviceTemperatures as $deviceTemperature) {
-            if ($deviceTemperature instanceof DeviceTemperatureInterface) {
-                $devicesData[] = $this->deviceTemperatureOutputTransformer->transform($deviceTemperature);
-                if (!$deviceTemperature->isStale()) {
-                    $totalForAverage += $deviceTemperature->getTemperature();
-                    ++$totalDevicesAveraged;
-                    $timestamp = $deviceTemperature->getTimestamp();
-                    if (null === $latestNonStaleTimestamp || $timestamp < $latestNonStaleTimestamp) {
-                        $latestNonStaleTimestamp = $timestamp;
-                    }
+            $devicesData[] = $this->deviceTemperatureOutputTransformer->transform($deviceTemperature);
+            if (!$deviceTemperature->isStale()) {
+                $totalForAverage += $deviceTemperature->getTemperature();
+                ++$totalDevicesAveraged;
+                $timestamp = $deviceTemperature->getTimestamp();
+                if (null === $latestNonStaleTimestamp || $timestamp < $latestNonStaleTimestamp) {
+                    $latestNonStaleTimestamp = $timestamp;
                 }
             }
         }
