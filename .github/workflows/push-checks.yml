@@ -7,6 +7,11 @@ jobs:
     name: "On-push checks"
     runs-on: "ubuntu-latest"
 
+    # The composer scripts prefix commands with `clear`, which needs TERM set;
+    # GitHub runners don't set it, so provide one to keep the scripts working.
+    env:
+      TERM: "xterm"
+
     steps:
       - name: "Checkout code"
         uses: "actions/checkout@v4"
