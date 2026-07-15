@@ -31,6 +31,11 @@ jobs:
           name: '${{ vars.GCP_CLOUD_FUNCTION_ENDPOINT }}'
           runtime: 'php83'
           entry_point: 'run'
+          # Run as the App Engine default SA, the same identity the Gen1 function
+          # used and which already holds roles/secretmanager.secretAccessor for the
+          # secrets below. Gen2 otherwise defaults to the Compute default SA, which
+          # has no secret access, so the deploy would fail validating the secrets.
+          service_account: 'christianbrown@appspot.gserviceaccount.com'
           region: 'europe-west2'
           memory: '128Mi'
           min_instance_count: 0
