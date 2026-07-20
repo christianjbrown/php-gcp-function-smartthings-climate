@@ -147,15 +147,18 @@ composer fix-style         # auto-fix style in src/ and tests/
 composer fix-style-diff    # auto-fix changed files only
 ```
 
-### :page_facing_up: API docs (dev-only)
+## :books: API documentation
 
-The committed `openapi.yaml` can be previewed and rendered as HTML with [Redoc](https://redocly.com/) via `@redocly/cli`. This tooling is dev-only and never ships to GCP — `node_modules/`, `package.json`, `package-lock.json` and the built `openapi.html` are all in `.gcloudignore`, so the deployed function stays pure-PHP:
+The committed `openapi.yaml` is generated from the `#[OA\...]` attributes in `src/`
+(`composer openapi:generate`). Dev-only [Redoc](https://redocly.com/redoc) tooling
+(`@redocly/cli`) renders and lints it — it is separate from the PHP runtime and excluded
+from both git and the GCP deploy, so it never affects the deployed function.
 
 ```bash
-npm install            # install the docs tooling (once)
-npm run docs:preview   # live preview in the browser
-npm run docs:build     # build a static openapi.html (git-ignored)
-npm run docs:lint      # lint the spec
+npm install            # one-time: installs the docs tooling (Node/npm)
+npm run docs:preview   # live browser preview of openapi.yaml (local server)
+npm run docs:build     # write a shareable static openapi.html (git-ignored build artifact)
+npm run docs:lint      # lint openapi.yaml
 ```
 
 
