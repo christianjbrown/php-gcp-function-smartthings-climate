@@ -152,12 +152,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/christianjbrown/php-gcp-function-lib.git",
-                "reference": "4b267be30c9bc3bd03f697aa431fb899bcf75a89"
+                "reference": "48988513cd9df0784a2c266e4250286e47b37e4c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/christianjbrown/php-gcp-function-lib/zipball/4b267be30c9bc3bd03f697aa431fb899bcf75a89",
-                "reference": "4b267be30c9bc3bd03f697aa431fb899bcf75a89",
+                "url": "https://api.github.com/repos/christianjbrown/php-gcp-function-lib/zipball/48988513cd9df0784a2c266e4250286e47b37e4c",
+                "reference": "48988513cd9df0784a2c266e4250286e47b37e4c",
                 "shasum": ""
             },
             "require": {
@@ -222,7 +222,7 @@
             "support": {
                 "source": "https://github.com/christianjbrown/php-gcp-function-lib/tree/main"
             },
-            "time": "2026-07-20T10:31:20+00:00"
+            "time": "2026-07-20T12:10:30+00:00"
         },
         {
             "name": "christianjbrown/php-key-value-store-lib",
@@ -230,12 +230,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/christianjbrown/php-key-value-store-lib.git",
-                "reference": "cacc2860d8d38ddca6fae98b625246044a003703"
+                "reference": "09835a0757a00f22e62f45b8a44f5350ae702e41"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/christianjbrown/php-key-value-store-lib/zipball/cacc2860d8d38ddca6fae98b625246044a003703",
-                "reference": "cacc2860d8d38ddca6fae98b625246044a003703",
+                "url": "https://api.github.com/repos/christianjbrown/php-key-value-store-lib/zipball/09835a0757a00f22e62f45b8a44f5350ae702e41",
+                "reference": "09835a0757a00f22e62f45b8a44f5350ae702e41",
                 "shasum": ""
             },
             "require": {
@@ -307,7 +307,7 @@
             "support": {
                 "source": "https://github.com/christianjbrown/php-key-value-store-lib/tree/main"
             },
-            "time": "2026-07-20T10:31:17+00:00"
+            "time": "2026-07-20T12:06:44+00:00"
         },
         {
             "name": "christianjbrown/php-oauth2-client-lib",
@@ -315,12 +315,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/christianjbrown/php-oauth2-client-lib.git",
-                "reference": "cd010565fd6230836c29e41ca996af4be36f90de"
+                "reference": "75596f2c0d98b6e2581e88589f20c829a9b65681"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/christianjbrown/php-oauth2-client-lib/zipball/cd010565fd6230836c29e41ca996af4be36f90de",
-                "reference": "cd010565fd6230836c29e41ca996af4be36f90de",
+                "url": "https://api.github.com/repos/christianjbrown/php-oauth2-client-lib/zipball/75596f2c0d98b6e2581e88589f20c829a9b65681",
+                "reference": "75596f2c0d98b6e2581e88589f20c829a9b65681",
                 "shasum": ""
             },
             "require": {
@@ -386,7 +386,7 @@
             "support": {
                 "source": "https://github.com/christianjbrown/php-oauth2-client-lib/tree/main"
             },
-            "time": "2026-07-20T10:42:46+00:00"
+            "time": "2026-07-20T12:08:41+00:00"
         },
         {
             "name": "christianjbrown/php-smartthings-api-lib",
@@ -394,12 +394,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/christianjbrown/php-smartthings-api-lib.git",
-                "reference": "6e3ad5992bd1617583d24495628fc4ae9bbe0807"
+                "reference": "b799b7f694643099ccf29e6d0376726eb8dd4355"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/christianjbrown/php-smartthings-api-lib/zipball/6e3ad5992bd1617583d24495628fc4ae9bbe0807",
-                "reference": "6e3ad5992bd1617583d24495628fc4ae9bbe0807",
+                "url": "https://api.github.com/repos/christianjbrown/php-smartthings-api-lib/zipball/b799b7f694643099ccf29e6d0376726eb8dd4355",
+                "reference": "b799b7f694643099ccf29e6d0376726eb8dd4355",
                 "shasum": ""
             },
             "require": {
@@ -464,7 +464,7 @@
             "support": {
                 "source": "https://github.com/christianjbrown/php-smartthings-api-lib/tree/main"
             },
-            "time": "2026-07-20T10:43:24+00:00"
+            "time": "2026-07-20T12:15:13+00:00"
         },
         {
             "name": "christianjbrown/php-user-friendly-exception-lib",
@@ -472,12 +472,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/christianjbrown/php-user-friendly-exception-lib.git",
-                "reference": "9996493f8e845c749487f5e527e98b045c628bfd"
+                "reference": "63d6bbc0f37d17b85029717694cd86dd94bf1607"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/christianjbrown/php-user-friendly-exception-lib/zipball/9996493f8e845c749487f5e527e98b045c628bfd",
-                "reference": "9996493f8e845c749487f5e527e98b045c628bfd",
+                "url": "https://api.github.com/repos/christianjbrown/php-user-friendly-exception-lib/zipball/63d6bbc0f37d17b85029717694cd86dd94bf1607",
+                "reference": "63d6bbc0f37d17b85029717694cd86dd94bf1607",
                 "shasum": ""
             },
             "require": {
@@ -537,7 +537,7 @@
             "support": {
                 "source": "https://github.com/christianjbrown/php-user-friendly-exception-lib/tree/main"
             },
-            "time": "2026-07-20T10:27:34+00:00"
+            "time": "2026-07-20T12:06:50+00:00"
         },
         {
             "name": "cloudevents/sdk-php",
